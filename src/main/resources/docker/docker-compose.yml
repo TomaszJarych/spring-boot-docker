@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  db-mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=tjpass
+      - MYSQL_DATABASE=dockerApp
+    volumes:
+      - db-data:/var/lib/mysql
+
+  springbootdocker:
+    build: .
+    image: springbootapp
+    depends_on:
+      - db-mysql
+    ports:
+      - 8080:8080
+    restart: always
+volumes:
+  db-data:
