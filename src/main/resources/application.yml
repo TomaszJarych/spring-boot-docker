@@ -1,0 +1,46 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    password: tjpass
+    url: jdbc:mysql://localhost:3307/dockerApp?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+  jackson:
+    default-property-inclusion: non-null
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        connection:
+          CharSet: UTF-8
+          characterEncoding: UTF-8
+          useUnicode: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+  mvc:
+    servlet:
+      path: /bm
+
+---
+spring:
+  profiles: docker
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  jackson:
+    default-property-inclusion: non-null
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        connection:
+          CharSet: UTF-8
+          characterEncoding: UTF-8
+          useUnicode: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+server:
+  port: 8088
+      
