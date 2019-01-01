@@ -13,7 +13,7 @@ spring:
     properties:
       hibernate:
         connection:
-          CharSet: UTF-8
+          CharSet: U
           characterEncoding: UTF-8
           useUnicode: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
