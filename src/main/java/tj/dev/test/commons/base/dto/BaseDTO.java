@@ -17,7 +17,6 @@ public abstract class BaseDTO {
 	}
 
 	public BaseDTO() {
-		super();
 	}
 
 }
